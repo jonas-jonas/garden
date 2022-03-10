@@ -24,6 +24,7 @@ services:
         hostname: vote.${var.baseHostname}
     env:
       HOSTNAME: vote.${var.baseHostname}
+      FOO: ${command.isInDevMode("vote")}
     dependencies:
       - api
 tests:

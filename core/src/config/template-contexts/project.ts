@@ -225,10 +225,27 @@ class CommandContext extends ConfigContext {
   )
   public params: DeepPrimitiveMap
 
+  @schema(
+    joi.function().description(`
+      Returns true if this command was run with dev mode enabled for this service. Returns false otherwise.
+    `)
+  )
+  public isInDevMode: (serviceName: string) => boolean
+
   constructor(root: ConfigContext, commandInfo: CommandInfo) {
     super(root)
     this.name = commandInfo.name
     this.params = { ...commandInfo.args, ...commandInfo.opts }
+    this.isInDevMode = (serviceName: string): boolean => {
+      if (this.name === "dev") {
+        return true
+      }
+      const devModeServiceNames = <string[] | undefined>this.params["dev-mode"]
+      if (!devModeServiceNames) {
+        return false
+      }
+      return devModeServiceNames.length === 0 ? true : devModeServiceNames.includes(serviceName)
+    }
   }
 }
 
