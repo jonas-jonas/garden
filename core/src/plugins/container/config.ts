@@ -234,8 +234,6 @@ const containerSyncSchema = () =>
   joi.object().keys({
     source: joi
       .posixPath()
-      .relativeOnly()
-      .subPathOnly()
       .allowGlobs()
       .default(".")
       .description(
