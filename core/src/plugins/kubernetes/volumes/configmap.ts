@@ -58,7 +58,6 @@ export const configmapDeployDefinition = (): DeployActionDefinition<ConfigmapAct
   handlers: {
     configure: async ({ config }) => {
       config.include = []
-      config.spec.accessModes = ["ReadOnlyMany"]
       return { config }
     },
 
@@ -102,8 +101,6 @@ export const configMapModuleDefinition = (): ModuleTypeDefinition => ({
       // No need to scan for files
       moduleConfig.include = []
 
-      moduleConfig.spec.accessModes = ["ReadOnlyMany"]
-
       moduleConfig.serviceConfigs = [
         {
           dependencies: moduleConfig.spec.dependencies,
@@ -136,7 +133,6 @@ export const configMapModuleDefinition = (): ModuleTypeDefinition => ({
               dependencies: prepareRuntimeDependencies(module.spec.dependencies, dummyBuild),
 
               spec: {
-                accessModes: module.spec.accessModes,
                 namespace: module.spec.namespace,
                 data: module.spec.data,
               },
