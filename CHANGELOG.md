@@ -1,4 +1,15 @@
 
+<a name="0.12.52-0"></a>
+## [0.12.52-0](https://github.com/garden-io/garden/compare/0.12.51...0.12.52-0) (2023-02-15)
+
+### Bug Fixes
+
+* **example:** correct entrypoint in `Dockerfile` in base-image example ([f31b6cd9f](https://github.com/garden-io/garden/commit/f31b6cd9f))
+
+### Features
+
+* **cloud:** Dashboard deprecation notice and garden cloud dashboard fallback ([#3666](https://github.com/garden-io/garden/issues/3666)) ([501d5c8fc](https://github.com/garden-io/garden/commit/501d5c8fc))
+
 <a name="0.12.51"></a>
 ## [0.12.51](https://github.com/garden-io/garden/compare/0.12.50...0.12.51) (2023-02-06)
 
