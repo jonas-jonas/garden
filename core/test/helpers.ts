@@ -665,7 +665,7 @@ const skipGroups = gardenEnv.GARDEN_SKIP_TESTS.split(" ")
 
 // Modified version of https://stackoverflow.com/a/26202058
 /**
- * Recursively remove null on undefined values from an object (inluding arrays).
+ * Recursively remove null or undefined values from an object (inluding array elements).
  */
 export function pruneEmpty(obj) {
   return (function prune(current) {
