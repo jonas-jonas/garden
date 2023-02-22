@@ -428,7 +428,6 @@ describe("kubernetes container deployment handlers", () => {
 
     it("should configure the service for sync with sync mode enabled", async () => {
       const action = await resolveDeployAction("sync-mode")
-      await executeAction({ garden, graph, log: garden.log, action })
       const namespace = provider.config.namespace!.name!
 
       const resource = await createWorkloadManifest({
@@ -475,7 +474,6 @@ describe("kubernetes container deployment handlers", () => {
 
     it("should configure the service for sync with sync mode enabled", async () => {
       const action = await resolveDeployAction("sync-mode")
-      await executeAction({ garden, graph, log: garden.log, action })
       const namespace = provider.config.namespace!.name!
 
       const resource = await createWorkloadManifest({
